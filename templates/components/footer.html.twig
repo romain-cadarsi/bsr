@@ -1,0 +1,50 @@
+<footer id="footer" class="dark">
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="widget">
+                        <div class="widget-title">Stagno - Entreprise BTP</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet leo a tortor volutpat porta. Mauris vitae ullamcorper erat, ac lobortis elit. Aliquam maximus ultricies pretium. Sed dictum magna ut risus hendrerit condimentum.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="widget text-center">
+                                <div class="widget-title">Informations</div>
+                                {% for adresse in emplacementS.adresses %}
+                                <p><b>{{ adresse.titre }}</b><br>
+                                <span class="fa fa-map-marker"></span> {{ adresse.adresse }}<br>
+                                <span class="fa fa-phone-alt"></span> {{ adresse.telephone }}<br>
+                                    <span class="fa fa-mail-bulk"></span> {{ adresse.image }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="widget text-right">
+                                <div class="widget-title">Un chantier en moselle ?</div>
+                                <p> Mauris vitae ullamcorper erat, ac lobortis elit. Aliquam maximus ultricies pretium. Sed dictum magna ut risus hendrerit condimentum.</p>
+                                <a href="{{ path('contact') }}" class="btn btn-dark">Devis sous 48h</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-content">
+        <div class="container">
+            <div class="copyright-text row">
+                <div class="col-lg-3"><a href="{{ path('contact') }}">Contact</a> </div>
+                <div class="col-lg-3"><a href="#">Mentions légales</a> </div>
+                <div class="col-lg-3"><a href="#">Cookies</a> </div>
+                <div class="col-lg-3"><a href="#">Politique de confidentialité</a> </div>
+            </div>
+        </div>
+    </div>
+</footer>

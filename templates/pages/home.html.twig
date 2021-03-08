@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <style>
+        iframe img {
+            max-width: 250px;
+            max-height: 250px;
+        }
+    </style>
+
+{% endblock %}
+ {% block menu %}
+     {% include('components/menu.html.twig') with {'transparent' : 'true'}%}
+ {% endblock %}
+{% block content %}
+
+
+    <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="360">
+
+        <div class="slide" data-bg-image="{{ asset('images/upload/' ~ general.imageAccueil) }}">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="slide-captions text-center text-light">
+                    <h2 data-animate="fadeInUp" data-animate-delay="600">{{ general.slogan | raw }}</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="page-content">
+        <div class="container">
+            <div class="grid-system-demo-live">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="home-image text-center" style="background-image: url('{{ asset('images/grosOeuvre.png') }}')">
+                            <h2 class="text-light vertical-align"> GROS OEUVRE </h2>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="home-image text-center"  style="background-image: url('{{ asset('images/entrepriseGenerale.png') }}')">
+                            <h2 class="text-light vertical-align">ENTREPRISE GENERALE</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-0" id="presentation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="col-lg-12 p-t-80 p-b-20">
+                        <div class="heading-text heading-section heading-gradient">
+                            <h2><span>Qui Sommes nous ?</span></h2>
+                            <p>{{ general.quiSommesNous | raw }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="home-image text-center" data-bg-image="{{ asset('images/upload/quiSommesNous.png') }}">
+                        <h2 class="text-light vertical-align"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="row reverse">
+                <div class="col-lg-6">
+                    <div class="col-lg-12 p-t-80 p-b-20">
+                        <div class="heading-text heading-section heading-gradient">
+                            <h2><span>Nos chiffres clés</span></h2>
+                            {{ general.nosChiffresCles | raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="home-image text-center" data-bg-image="{{ asset('images/upload/chiffresCles.png') }}">
+                        <h2 class="text-light vertical-align"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="col-lg-12 p-t-80 p-b-20">
+                <div class="heading-text heading-section heading-gradient">
+                    <h2><span>Nos réalisations</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for realisation in realisations|slice(0,3) %}
+                    <div class="grid-item col-lg-4 {{ realisation.type }}">
+                        <div class="grid-item-wrap m-4">
+                            <div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')">
+                            </div>
+                            <div class="grid-description">
+                                <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax"><i class="fas fa-external-link-square-alt"></i></a>
+                            </div>
+                            <div class="grid-meta text-center">
+                                <h4>{{ realisation.titre }}</h4>
+                                <p>{{ realisation.adresse }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% include('composantsPages/ilsNousFontConfiance.html.twig') %}
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="col-lg-12 p-t-80 p-b-20">
+                <div class="heading-text heading-gradient heading-section">
+                    <h2><span>Notre actualité</span></h2>
+                    <p>Découvrez toute l'actualité {{ general.nomEntreprise }} : nouveaux chantiers, évènements, nouveautés du marché...</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row text-center">
+                {% for actualite in actualites|slice(0,4) %}
+                <div class="col-xl-3">
+                    <div class="fb-post"
+                         data-href="{{ actualite.lienFacebook }}"
+                         data-width="350"></div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-0">
+        <div class="container">
+            <div class="col-lg-12 p-t-80 p-b-20">
+                <div class="heading-text heading-section heading-gradient">
+                    <h2><span>Nos clients témoignent</span></h2>
+                </div>
+            </div>
+            <div class="carousel arrows-visible testimonial testimonial-single" data-items="1" data-loop="true" data-autoplay="true" data-autoplay="2000" data-arrows="true" data-animate-in="fadeIn" data-animate-out="fadeOut">
+                {% for temoignage in temoignages %}
+                <div class="testimonial-item">
+                    {% if temoignage.client is not null %}
+                    <img src="{{ asset('images/upload/' ~ temoignage.client.image)  }}" alt="">
+                    {% else %}
+                        <img src="{{ asset('images/user.png') }}" alt="">
+                        {% endif %}
+                    <p> {{ temoignage.temoignage }}</p>
+                    <span>{{ temoignage.nomPersonne }}</span>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+    {% block js  %}
+        {{ parent() }}
+    {% endblock %}

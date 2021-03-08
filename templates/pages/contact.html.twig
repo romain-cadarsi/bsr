@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <style>
+
+
+    </style>
+{% endblock %}
+{% block content %}
+    <section id="page-title" class="text-light" style="background-image:url('{{ asset('images/contact.png') }}'); background-size: cover; background-position: center center;">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="page-title">
+                <h1>Nous contacter</h1>
+            </div>
+        </div>
+    </section>
+    <section class="pb-0">
+        {% for emplacement in emplacements %}
+        <div class="container">
+            <div class="call-to-action call-to-action-dark p-0">
+                <div class="row">
+                    <div class="col-4 background-image" data-bg-image="{{ asset('images/upload/'~ emplacement.image) }}" >
+                    </div>
+                    <div class="col-8">
+                        <div class="container p-2">
+                            <h2 class="text-light"><span class="fa fa-map-marker"></span> {{ emplacement.titre }}</h2>
+                            <p>
+
+                                {{ emplacement.adresse }}<br>
+                                Tel: {{ emplacement.telephone }}<br>
+                                Email: {{ emplacement.email }}<br>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <section>
+        <div class="heading-section text-center">
+            <h2 class="heading-text">Nous contacter</h2>
+            <p>Laissez-nous vos coordonnées et nous vous contacterons.</p>
+        </div>
+        <div class="container">
+            <form class="widget-contact-form" novalidate="" role="form" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Nom</label>
+                        <input type="text" aria-required="true" name="widget-contact-form-name" required="" class="form-control required name" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" aria-required="true" name="widget-contact-form-email" required="" class="form-control required email" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="subject">Téléphone</label>
+                        <input type="tel" name="widget-contact-form-phone" required="" class="form-control required" placeholder="+33...">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="subject"> Votre demande concerne </label>
+                        <input type="text" name="widget-contact-form-subject" required="" class="form-control required" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea type="text" name="widget-contact-form-message" required="" rows="5" class="form-control required" placeholder=""></textarea>
+                </div>
+
+                <button class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

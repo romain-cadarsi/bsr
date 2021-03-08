@@ -1,0 +1,12 @@
+<div class="portfolio-ajax-page">
+    <div class="row">
+           <div class="col-lg-8 background-image" style="background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')" ></div>
+        <div class="col-lg-4">
+            <div class="project-description">
+                <h2>{{ realisation.titre }}</h2>
+                <h5>{{ realisation.adresse }}</h5>
+                <div>{{ realisation.contenu | raw }}</div>
+            </div>
+        </div>
+    </div>
+</div>

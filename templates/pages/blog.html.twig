@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <style>
+
+
+    </style>
+{% endblock %}
+{% block content %}
+
+    <section id="page-content" class="sidebar-right">
+        <div class="container">
+            <div class="row">
+
+                <div class="content col-lg-9">
+
+                    <div id="blog" class="single-post">
+
+                        <div class="post-item">
+                            <div class="post-item-wrap">
+                                <div class="post-image">
+                                    <a href="">
+                                        <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}">
+                                    </a>
+                                </div>
+                                <div class="post-item-description">
+                                    <h2>{{ blog.titre }}</h2>
+                                    <div class="post-meta">
+                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ blog.date | date('M d, Y') }}</span>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div>{{ blog.contenu | raw }}</div>
+                                    </div>
+                                </div>
+                                <div class="post-navigation">
+                                    {% if previousBlog is not null %}
+                                    <a href="{{ path('blog',{'id' : previousBlog.id}) }}" class="post-prev">
+                                        <div class="post-prev-title"><span>Blog Précédent</span>{{ previousBlog.titre }}</div>
+                                    </a>
+                                    {% endif %}
+                                    <a href="{{ path('blogs') }}" class="post-all">
+                                        <i class="icon-grid"> </i>
+                                    </a>
+                                    {% if nextBlog is not null %}
+                                    <a href="{{ path('blog',{'id' : nextBlog.id}) }}" class="post-next">
+                                        <div class="post-next-title"><span>Blog Suivant</span>{{ nextBlog.titre }}</div>
+                                    </a>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="sidebar sticky-sidebar col-lg-3">
+
+                    <div class="widget">
+                        <h2 class="widget-title">Autres blogs</h2>
+                        <div class="post-thumbnail-list">
+                            {% for blog in otherBlogs %}
+                                <div class="post-thumbnail-entry">
+                                    <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}">
+                                    <div class="post-thumbnail-content">
+                                        <a href="{{ path('blog',{'id' : blog.id}) }}">{{ blog.titre }}</a>
+                                        <span class="post-date"><i class="fa fa-calendar-o"></i>{{ blog.date | date('M d, Y') }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+    {% block js  %}
+        {{ parent() }}
+    {% endblock %}

@@ -1,0 +1,36 @@
+<header id="header" class="dark submenu-light" {% if transparent is defined %}data-transparent="true" {% endif %}data-fullwidth="true">
+    <div class="header-inner">
+        <div class="container">
+
+            <div id="logo">
+                <a href="{{ path('home') }}">
+                    <span class="logo-default"><img src="{{ asset('images/upload/logo-dark.png') }}" alt="BSB Royal"></span>
+                    <span class="logo-dark"><img src="{{ asset('images/upload/logo-light.png') }}" alt="BSB Royal"></span>
+                    <span class="logo-responsive"><img src="{{ asset('images/upload/logo-petit.png') }}" alt="BSB Royal"></span>
+                </a>
+            </div>
+
+
+            <div id="mainMenu-trigger">
+                <a class="lines-button x"><span class="lines"></span></a>
+            </div>
+
+
+            <div id="mainMenu" class="menu-creative">
+                <div class="container">
+                    <nav>
+                        <ul>
+
+                            <li><a href="{{ path('home') }}#presentation" class="scroll-to">L'entreprise</a></li>
+                            <li><a href="{{ path('realisations') }}">Réalisations</a></li>
+                            <li><a href="{{ path('blogs') }}">Actualités</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>

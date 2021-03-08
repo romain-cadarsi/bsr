@@ -1,0 +1,9 @@
+<div class="grid-item {% if va is defined %} vertical-align {% endif %}">
+    <div class="grid-item-wrap">
+        <div class="grid-image"> <img alt="Image Lightbox" src="{{ image }}" {% if mh is defined %}style="max-height: {{ mh }}px"{% endif%} />
+        </div>
+        <div class="grid-description">
+            <a data-lightbox="image" href="{{ image }}" class="btn btn-light btn-rounded">Zoom</a>
+        </div>
+    </div>
+</div>

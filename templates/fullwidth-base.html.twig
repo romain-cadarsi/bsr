@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" /> <meta name="author" content="Cadarsir" />
+    <meta name="description" content="Clearnet ISO">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-petit.png') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}Clearnet Energie {% endblock %}</title>
+
+    {% block css %}
+        {% include('components/css.html.twig') %}
+
+    {% endblock %}
+
+</head>
+<body>
+
+<div class="body-inner">
+
+    {% include('components/menu.html.twig') %}
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+
+
+    {% block footer %}
+        {% include('components/footer.html.twig') %}
+    {% endblock %}
+</div>
+
+<a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+
+{% block js %}
+    {% include('components/js.html.twig') %}
+    <link href="{{ asset('plugins/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
+    <script src="{{ asset('plugins/jquery-steps/jquery.steps.min.js') }}"></script>
+    <script>
+        $('#wizard2').steps({
+            headerTag: 'h3',
+            bodyTag: '.wizard-content',
+            enableAllSteps: true,
+            transitionEffect : $.fn.steps.transitionEffect.fade,
+            transitionEffectSpeed: '200',
+            labels: {
+                cancel: "",
+                current: "",
+                pagination: "",
+                finish: "",
+                next: "",
+                previous: "",
+                loading: ""
+            }
+        });
+
+        $('.pro').on('click',function (){
+            $('#wizard2').steps('next')
+        })
+
+        $('#wizard1').steps({
+            headerTag: 'h3',
+            bodyTag: '.wizard-content',
+            enableAllSteps: true,
+            transitionEffect : $.fn.steps.transitionEffect.fade,
+            transitionEffectSpeed: '200',
+            labels: {
+                cancel: "",
+                current: "",
+                pagination: "",
+                finish: "",
+                next: "",
+                previous: "",
+                loading: ""
+            }
+        });
+
+        $('.pro').on('click',function (){
+            $('#wizard1').steps('next')
+        })
+
+        setTimeout(function (){
+            INSPIRO.elements.notification("",'<div class="row"><div class="col-lg-6"><div class="vertical-align"><h4 class="text-primary">Besoin d\'aide ?</h4><h3 class="text-secondary">01 77 37 07 93</h3></div></div><div class="col-lg-6"><p>(Prix d\'un appel local)</p><p>du lundi au vendredi : 9h30 - 19h30</p></div></div>','light','',20000,'bottom')
+        },5000);
+    </script>
+{% endblock %}
+</body>
+</html>
+

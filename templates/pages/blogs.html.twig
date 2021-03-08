@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <style>
+
+
+    </style>
+{% endblock %}
+{% block content %}
+    <section id="page-title" class="text-light" style="background-image:url({{ asset('images/blog.jpg') }}); background-size: cover; background-position: center center;">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="page-title">
+                <h1>Nos Blogs</h1>
+                <span>Découvrez toute l'actualité {{ general.nomEntreprise }} : nouveaux chantiers, évènements, nouveautés du marché...</span>
+            </div>
+        </div>
+    </section>
+    <section id="page-content">
+        <div class="container">
+
+
+            <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
+
+                {% for blog in blogs %}
+                <div class="post-item border">
+                    <div class="post-item-wrap">
+                        <div class="post-image"> <a href="{{ path('blog',{'id' : blog.id}) }}"> <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}"> </a></div>
+                        <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ blog.date | date('M d, Y') }}</span>
+                            <h2><a href="#">{{ blog.titre }}</a></h2>
+                            <div> {{ blog.contenu | u.truncate( 200, '...', false) |replace({'<div>': '', '</div>': ""}) | raw}} </div>
+                            <a href="{{ path('blog',{'id' : blog.id}) }}" class="item-link">Lire plus <i class="icon-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+{% endblock %}
+
+    {% block js  %}
+        {{ parent() }}
+    {% endblock %}
