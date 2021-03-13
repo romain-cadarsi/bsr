@@ -3,7 +3,11 @@
 }
 
 .light-green *{
- color: #5dd598;
+    color: #5dd598;
+}
+
+#mainMenu a.btn {
+    border-radius: 5px !important;
 }
 
 #logo img{

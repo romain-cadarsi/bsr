@@ -42,6 +42,11 @@ class Emplacement
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $afficherDansLeFooter;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Emplacement
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAfficherDansLeFooter(): ?bool
+    {
+        return $this->afficherDansLeFooter;
+    }
+
+    public function setAfficherDansLeFooter(bool $afficherDansLeFooter): self
+    {
+        $this->afficherDansLeFooter = $afficherDansLeFooter;
 
         return $this;
     }

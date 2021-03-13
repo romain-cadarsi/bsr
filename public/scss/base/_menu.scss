@@ -27,7 +27,7 @@ Main Menu
                 margin-left: 6px;
                 position: relative;
 
-                >a {
+                >a:not(.special) {
                     position: relative;
                     font-family: $font-menu;
                     padding: 10px 12px;

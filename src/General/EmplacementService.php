@@ -3,7 +3,6 @@
 namespace App\General;
 
 use App\Repository\EmplacementRepository;
-use App\Repository\GeneralRepository;
 
 class EmplacementService{
     private EmplacementRepository $er;

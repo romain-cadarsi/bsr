@@ -15,14 +15,15 @@
 {% block content %}
 
 
-    <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="360">
+    <div id="slider" class="inspiro-slider dots-creative" data-height-xs="360">
 
         <div class="slide" data-bg-image="{{ asset('images/upload/' ~ general.imageAccueil) }}">
             <div class="bg-overlay"></div>
-            <div class="container">
+            <div class="container text-center">
                 <div class="slide-captions text-center text-light">
                     <h2 data-animate="fadeInUp" data-animate-delay="600">{{ general.slogan | raw }}</h2>
                 </div>
+                <a href="{{ path('contact') }}" class="btn btn-success" data-animate="fadeInUp" data-animate-delay="600">Demande de devis express</a>
             </div>
         </div>
 
@@ -46,12 +47,13 @@
             </div>
         </div>
     </section>
+
     <section class="pt-0" id="presentation">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="col-lg-12 p-t-80 p-b-20">
-                        <div class="heading-text heading-section heading-gradient">
+                        <div class="heading-text heading-section ">
                             <h2><span>Qui Sommes nous ?</span></h2>
                             <p>{{ general.quiSommesNous | raw }}</p>
                         </div>
@@ -72,7 +74,7 @@
             <div class="row reverse">
                 <div class="col-lg-6">
                     <div class="col-lg-12 p-t-80 p-b-20">
-                        <div class="heading-text heading-section heading-gradient">
+                        <div class="heading-text heading-section ">
                             <h2><span>Nos chiffres clés</span></h2>
                             {{ general.nosChiffresCles | raw }}
                         </div>
@@ -85,80 +87,125 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <section class="pt-0">
         <div class="container">
-            <div class="col-lg-12 p-t-80 p-b-20">
-                <div class="heading-text heading-section heading-gradient">
+            <div class="col-lg-12">
+                <div class="heading-text heading-section ">
                     <h2><span>Nos réalisations</span></h2>
                 </div>
             </div>
             <div class="row">
                 {% for realisation in realisations|slice(0,3) %}
                     <div class="grid-item col-lg-4 {{ realisation.type }}">
-                        <div class="grid-item-wrap m-4">
-                            <div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')">
-                            </div>
-                            <div class="grid-description">
-                                <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax"><i class="fas fa-external-link-square-alt"></i></a>
-                            </div>
-                            <div class="grid-meta text-center">
-                                <h4>{{ realisation.titre }}</h4>
-                                <p>{{ realisation.adresse }}</p>
-                            </div>
+                        <div class="grid-item-wrap m-4" style="height: 200px;">
+                            <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax" style="height: 200px;"><div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')">
+                                </div></a>
+                        </div>
+                        <div class="text-center">
+                            <h4>{{ realisation.titre }}</h4>
+                            <p>{{ realisation.adresse }}</p>
                         </div>
                     </div>
                 {% endfor %}
             </div>
+            <div class="text-center">
+                <a class="btn btn-success text-center" href="{{ path('realisations') }}">Toutes nos réalisations</a>
+            </div>
+
         </div>
     </section>
 
 
-{% include('composantsPages/ilsNousFontConfiance.html.twig') %}
+    {% include('composantsPages/ilsNousFontConfiance.html.twig') %}
+    <section class="pt-0 text-center">
+        <a href="{{ path('contact') }}" class="btn btn-lg btn-success" data-animate="fadeInUp" data-animate-delay="600">Demande de devis express</a>
+    </section>
 
     <section class="pt-0">
         <div class="container">
-            <div class="col-lg-12 p-t-80 p-b-20">
-                <div class="heading-text heading-gradient heading-section">
+            <div class="col-lg-12">
+                <div class="heading-text  heading-section">
+                    <h2><span>Nos garanties</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="icon-box medium clean">
+                        <div class="icon visible"> <a href="#"><i class="fa fa-clock"></i></a> </div>
+                        <h3>Garantie de livraison à prix et délais convenus</h3>
+                        <p>Avant le début du chantier, nous évoquons ensemble toutes les possibilités et options des travaux à réaliser, vous n’avez donc pas de surprises pendant le chantier. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-box medium clean">
+                        <div class="icon visible"> <a href="#"><i class="fa fa-hourglass-start"></i></a> </div>
+                        <h3>Garantie décennale
+                        </h3>
+                        <p>Cette garantie engage notre responsabilité et vous permet un remboursement rapide et une couverture à 100% pour tout dommages concernant la solidité de la construction et aux différents équipements liés à celle-ci.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-box medium clean">
+                        <div class="icon visible" > <a href="#"><i class="fa fa-file-invoice-dollar"></i></a> </div>
+                        <h3>Garantie de Tarifs justes
+                        </h3>
+                        <p>Grâce à nos tarifs négociés avec les fournisseurs, nous pouvons vous proposer des tarifs compétitifs tout en maintenant la qualité d’exécution
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="pt-0">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="heading-text  heading-section">
                     <h2><span>Notre actualité</span></h2>
                     <p>Découvrez toute l'actualité {{ general.nomEntreprise }} : nouveaux chantiers, évènements, nouveautés du marché...</p>
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row text-center">
-                {% for actualite in actualites|slice(0,4) %}
-                <div class="col-xl-3">
-                    <div class="fb-post"
-                         data-href="{{ actualite.lienFacebook }}"
-                         data-width="350"></div>
-                </div>
+                {% for actualite in actualites|slice(0,3) %}
+                    <div class="col-xl-4">
+                        <div class="fb-post"
+                             data-href="{{ actualite.lienFacebook }}"
+                             data-width="350"></div>
+                    </div>
                 {% endfor %}
 
+            </div>
+            <div class="text-center">
+                <a class="btn btn-success text-center" href="{{ path('actualites') }}">Toutes nos actualités</a>
             </div>
         </div>
     </section>
 
     <section class="pt-0">
         <div class="container">
-            <div class="col-lg-12 p-t-80 p-b-20">
-                <div class="heading-text heading-section heading-gradient">
+            <div class="col-lg-12 ">
+                <div class="heading-text heading-section ">
                     <h2><span>Nos clients témoignent</span></h2>
                 </div>
             </div>
             <div class="carousel arrows-visible testimonial testimonial-single" data-items="1" data-loop="true" data-autoplay="true" data-autoplay="2000" data-arrows="true" data-animate-in="fadeIn" data-animate-out="fadeOut">
                 {% for temoignage in temoignages %}
-                <div class="testimonial-item">
-                    {% if temoignage.client is not null %}
-                    <img src="{{ asset('images/upload/' ~ temoignage.client.image)  }}" alt="">
-                    {% else %}
-                        <img src="{{ asset('images/user.png') }}" alt="">
+                    <div class="testimonial-item">
+                        {% if temoignage.client is not null %}
+                            <img src="{{ asset('images/upload/' ~ temoignage.client.image)  }}" alt="">
+                        {% else %}
+                            <img src="{{ asset('images/user.png') }}" alt="">
                         {% endif %}
-                    <p> {{ temoignage.temoignage }}</p>
-                    <span>{{ temoignage.nomPersonne }}</span>
-                </div>
+                        <p> {{ temoignage.temoignage }}</p>
+                        <span>{{ temoignage.nomPersonne }}</span>
+                    </div>
                 {% endfor %}
 
 

@@ -15,30 +15,7 @@
             </div>
         </div>
     </section>
-    <section class="pb-0">
-        {% for emplacement in emplacements %}
-        <div class="container">
-            <div class="call-to-action call-to-action-dark p-0">
-                <div class="row">
-                    <div class="col-4 background-image" data-bg-image="{{ asset('images/upload/'~ emplacement.image) }}" >
-                    </div>
-                    <div class="col-8">
-                        <div class="container p-2">
-                            <h2 class="text-light"><span class="fa fa-map-marker"></span> {{ emplacement.titre }}</h2>
-                            <p>
 
-                                {{ emplacement.adresse }}<br>
-                                Tel: {{ emplacement.telephone }}<br>
-                                Email: {{ emplacement.email }}<br>
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </section>
     <section>
         <div class="heading-section text-center">
             <h2 class="heading-text">Nous contacter</h2>
@@ -71,7 +48,7 @@
                     <textarea type="text" name="widget-contact-form-message" required="" rows="5" class="form-control required" placeholder=""></textarea>
                 </div>
 
-                <button class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Envoyer le message</button>
+                <button class="btn btn-success" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Envoyer le message</button>
             </form>
         </div>
     </section>

@@ -24,6 +24,18 @@
 
     {% block content %}
     {% endblock %}
+    <div id="cookieNotify" class="modal-strip cookie-notify background-dark" data-delay="3000" data-expire="1" data-cookie-name="{{ generalS.general.nomEntreprise }}" data-cookie-enabled="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-sm-center sm-center sm-m-b-10 m-t-5">Ce site utilise des cookies pour vous garantir une meilleure navigation. En poursuivant votre visite sur notre site vous acceptez l'utilisation des cookies. <a href="{{ path('cookies') }}" class="text-light"><span> En savoir plus <i class="fa fa-info-circle"></i></span></a></div>
+                <div class="col-lg-4 text-right sm-text-center sm-center">
+                    <button type="button" class="btn btn-rounded btn-light btn-outline btn-sm m-r-10 modal-close">Decline</button>
+                    <button type="button" class="btn btn-rounded btn-light btn-sm modal-confirm">Got
+                        it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% block footer %}
     {% include('components/footer.html.twig') %}

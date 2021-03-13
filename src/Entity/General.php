@@ -72,6 +72,11 @@ class General
      */
     private $imageAccueil;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $telephone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,18 @@ class General
     public function setImageAccueil(string $imageAccueil): self
     {
         $this->imageAccueil = $imageAccueil;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }

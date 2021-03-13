@@ -19,6 +19,13 @@ class EmplacementRepository extends ServiceEntityRepository
         parent::__construct($registry, Emplacement::class);
     }
 
+    public function deactivateAll(){
+        $this->createQueryBuilder('e')
+            ->set('e.afficherDansLeFooter',false)
+            ->getQuery()
+            ->execute();
+    }
+
     // /**
     //  * @return Emplacement[] Returns an array of Emplacement objects
     //  */

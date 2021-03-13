@@ -4,8 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Actualite;
 use App\Entity\Blog;
+use App\Entity\Cookies;
 use App\Entity\Emplacement;
 use App\Entity\General;
+use App\Entity\MentionsLegales;
+use App\Entity\PolitiqueDeConfidentialite;
 use App\Entity\Realisation;
 use App\Entity\Temoignage;
 use App\Repository\BlogRepository;
@@ -42,5 +45,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Réalisation', 'fa fa-briefcase', Realisation::class);
         yield MenuItem::linkToCrud('Témoignages', 'fa fa-file', Temoignage::class);
         yield MenuItem::linkToCrud('Actualités', 'fa fa-newspaper', Actualite::class);
+        yield MenuItem::linkToCrud('Cookies', 'fa fa-cogs', Cookies::class);
+        yield MenuItem::linkToCrud('Politique de confidentialité', 'fa fa-cogs', PolitiqueDeConfidentialite::class);
+        yield MenuItem::linkToCrud('Mentions légales', 'fa fa-cogs', MentionsLegales::class);
     }
 }

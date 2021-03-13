@@ -5,8 +5,11 @@ namespace App\Controller;
 use App\Repository\ActualiteRepository;
 use App\Repository\BlogRepository;
 use App\Repository\ClientRepository;
+use App\Repository\CookiesRepository;
 use App\Repository\EmplacementRepository;
 use App\Repository\GeneralRepository;
+use App\Repository\MentionsLegalesRepository;
+use App\Repository\PolitiqueDeConfidentialiteRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\TemoignageRepository;
 use phpDocumentor\Reflection\Types\This;
@@ -65,6 +68,50 @@ class WebsiteController extends AbstractController
         return $this->render('pages/blogs.html.twig', [
             'blogs' => $allBlogs,
             'general' => $general
+        ]);
+    }
+
+    /**
+     * @Route("/actualites", name="actualites")
+     */
+    public function actualites(ActualiteRepository $actualiteRepository): Response
+    {
+        $allActualites = $actualiteRepository->findAll();
+        return $this->render('pages/actualites.html.twig', [
+            'actualites' => array_reverse($allActualites),
+        ]);
+    }
+
+    /**
+     * @Route("/cookies", name="cookies")
+     */
+    public function cookies(CookiesRepository $cookieRepo): Response
+    {
+        $cookie = $cookieRepo->find(1);
+        return $this->render('pages/cookies.html.twig', [
+            'cookies' => $cookie,
+        ]);
+    }
+
+    /**
+     * @Route("/mentions-legales", name="mentionsLegales")
+     */
+    public function mentionsLegales(MentionsLegalesRepository $mentionsLegalesRepository): Response
+    {
+        $mentionsLegales = $mentionsLegalesRepository->find(1);
+        return $this->render('pages/mentionsLegales.html.twig', [
+            'mentionsLegales' => $mentionsLegales,
+        ]);
+    }
+
+    /**
+     * @Route("/politique-de-confidentialite", name="politiqueDeConfidentialite")
+     */
+    public function politiqueDeConfidentialite(PolitiqueDeConfidentialiteRepository $PolitiqueDeConfidentialiteRepository): Response
+    {
+        $pdc = $PolitiqueDeConfidentialiteRepository->find(1);
+        return $this->render('pages/pdc.html.twig', [
+            'pdc' => $pdc,
         ]);
     }
 
