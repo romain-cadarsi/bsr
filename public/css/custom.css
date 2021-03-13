@@ -6,8 +6,12 @@
  <link href="css/custom.css" rel="stylesheet">
 
 */
+.realisation-ajax .background-image{
+    min-height : 200px;
+}
 
 @media all and (min-width:1350px){
+
 
     #logo img{
         max-height: 100px;
@@ -36,6 +40,10 @@
 
 .background-image.contain{
     background-size:contain;
+}
+#mainMenu .btn{
+    height : unset !important;
+    border-radius: 10px;
 }
 .home-image{
     min-height: 200px;
