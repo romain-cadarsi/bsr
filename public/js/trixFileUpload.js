@@ -44,7 +44,7 @@
 
     function createStorageKey(file) {
         var name =  file.name
-        return "images/upload/" + name ;
+        return "/images/upload/" + name ;
     }
 
     function createFormData(key, file) {
