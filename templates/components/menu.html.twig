@@ -1,4 +1,4 @@
-<header id="header" class="dark submenu-light" {% if transparent is defined %}data-transparent="true" {% endif %}data-fullwidth="true">
+<header id="header" class=" submenu-light" data-fullwidth="true">
     <div class="header-inner">
         <div class="container">
 
@@ -20,7 +20,7 @@
                 <div class="container">
                     <nav>
                         <ul>
-                            <li><a href="tel:{{ generalS.general.telephone }}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone }} </a></li>
+                            <li><a class="special btn btn-light " href="tel:{{ generalS.general.telephone }}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone }} </a></li>
                             <li><a href="{{ path('home') }}#presentation" class="scroll-to">L'entreprise</a></li>
                             <li><a href="{{ path('realisations') }}">Réalisations</a></li>
                             <li><a href="{{ path('blogs') }}#presentation" class="scroll-to">Blogs</a></li>

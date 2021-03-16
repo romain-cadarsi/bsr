@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <style>
+
+
+    </style>
+{% endblock %}
+{% block content %}
+
+    <section id="page-content" class="sidebar-right">
+        <div class="container">
+            <div class="row">
+
+                <div class="content col-lg-9">
+
+                    <div id="article" class="single-post">
+
+                        <div class="post-item">
+                            <div class="post-item-wrap">
+                                <div class="post-image">
+                                    <a href="">
+                                        <img alt="" src="{{ asset('images/upload/' ~ article.image) }}">
+                                    </a>
+                                </div>
+                                <div class="post-item-description">
+                                    <h2>{{ article.titre }}</h2>
+                                    <div class="post-meta">
+                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>
+                                    </div>
+                                    <div class="article-content">
+                                        <div>{{ article.contenu | raw }}</div>
+                                    </div>
+                                </div>
+                                <div class="post-navigation">
+                                    {% if previousArticle is not null %}
+                                        <a href="{{ path('actualite',{'id' : previousArticle.id}) }}" class="post-prev">
+                                            <div class="post-prev-title"><span>Article Précédent</span>{{ previousArticle.titre }}</div>
+                                        </a>
+                                    {% endif %}
+                                    <a href="{{ path('actualites') }}" class="post-all">
+                                        <i class="icon-grid"> </i>
+                                    </a>
+                                    {% if nextArticle is not null %}
+                                        <a href="{{ path('actualite',{'id' : nextArticle.id}) }}" class="post-next">
+                                            <div class="post-next-title"><span>Article Suivant</span>{{ nextArticle.titre }}</div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="sidebar sticky-sidebar col-lg-3">
+
+                    <div class="widget">
+                        <h2 class="widget-title">Autres articles</h2>
+                        <div class="post-thumbnail-list">
+                            {% for article in otherArticles %}
+                                <div class="post-thumbnail-entry">
+                                    <img alt="" src="{{ asset('images/upload/' ~ article.image) }}">
+                                    <div class="post-thumbnail-content">
+                                        <a href="{{ path('actualite',{'id' : article.id}) }}">{{ article.titre }}</a>
+                                        <span class="post-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+    {% block js  %}
+        {{ parent() }}
+    {% endblock %}
