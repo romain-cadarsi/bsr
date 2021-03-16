@@ -395,7 +395,7 @@ var INSPIRO = {},
         $triggerButton.on("click", function (e) {
           var elem = $(this);
           e.preventDefault();
-          $(window).breakpoints("lessThan", "lg", function () {
+          $(window).breakpoints("lessThan", "xl", function () {
             var openMenu = function () {
               if (!processing) {
                 processing = true;
