@@ -22,8 +22,14 @@ class EmplacementCrudController extends AbstractCrudController
             TextField::new('adresse'),
             TextField::new('telephone'),
             TextField::new('email'),
-            ImageField::new('image')->setBasePath('images/upload/')->setUploadDir('public/images/upload')->setRequired(false),
-            BooleanField::new('afficherDansLeFooter')->onlyOnIndex()->setHelp("Si cette option est cochée, cette seule adresse apparaîtra dans le footer")
+            ImageField::new('image')
+                ->setBasePath('images/upload/')
+                ->setUploadDir('public/images/upload')
+                ->setRequired(false)
+                ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
+            BooleanField::new('afficherDansLeFooter')
+                ->onlyOnIndex()
+                ->setHelp("Si cette option est cochée, cette seule adresse apparaîtra dans le footer")
         ];
     }
 }

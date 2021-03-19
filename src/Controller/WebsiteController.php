@@ -10,6 +10,7 @@ use App\Repository\CookiesRepository;
 use App\Repository\EmplacementRepository;
 use App\Repository\GeneralRepository;
 use App\Repository\MentionsLegalesRepository;
+use App\Repository\NosGarantiesRepository;
 use App\Repository\PolitiqueDeConfidentialiteRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\TemoignageRepository;
@@ -30,7 +31,7 @@ class WebsiteController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(GeneralRepository $generalRepository,RealisationRepository $realisationRepository, ArticleRepository $articleRepository, ActualiteRepository $actualiteRepository,ClientRepository $clientRepository,TemoignageRepository $temoignageRepository): Response
+    public function home(NosGarantiesRepository $nosGarantiesRepository, GeneralRepository $generalRepository,RealisationRepository $realisationRepository, ArticleRepository $articleRepository, ActualiteRepository $actualiteRepository,ClientRepository $clientRepository,TemoignageRepository $temoignageRepository): Response
     {
         $generalItem = $generalRepository->find(1);
         $realisations = $realisationRepository->findAll();
@@ -38,6 +39,7 @@ class WebsiteController extends AbstractController
         $allArticles = $articleRepository->findAll();
         $allClient = $clientRepository->findAll();
         $allTemoignages = $temoignageRepository->findAll();
+        $allEngagements = $nosGarantiesRepository->findAll();
         return $this->render('pages/home.html.twig', [
             "general" => $generalItem,
             'realisations' => array_reverse($realisations),
@@ -45,6 +47,7 @@ class WebsiteController extends AbstractController
             'clients' => array_reverse($allClient),
             'temoignages' => array_reverse($allTemoignages),
             'articles' => array_reverse($allArticles),
+            'engagements' => $allEngagements
         ]);
     }
 

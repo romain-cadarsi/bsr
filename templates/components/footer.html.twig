@@ -3,15 +3,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="widget">
-                        <div class="widget-title">Stagno - Entreprise BTP</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet leo a tortor volutpat porta. Mauris vitae ullamcorper erat, ac lobortis elit. Aliquam maximus ultricies pretium. Sed dictum magna ut risus hendrerit condimentum.</p>
+                    <div class="widget text-center text-lg-left">
+                        <div class="widget-title">{{ generalS.general.nomEntreprise }}</div>
+                        <p>{{ generalS.general.entrepriseDescription    }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="widget text-center">
+                            <div class="widget text-center " >
                                 <div class="widget-title">Informations</div>
                                 {% for adresse in emplacementS.adresses %}
                                     {% if adresse.afficherDansLeFooter %}
@@ -28,9 +28,9 @@
                 <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="widget text-right">
-                                <div class="widget-title">Un chantier en moselle ?</div>
-                                <p> Mauris vitae ullamcorper erat, ac lobortis elit. Aliquam maximus ultricies pretium. Sed dictum magna ut risus hendrerit condimentum.</p>
+                            <div class="widget text-center text-lg-right">
+                                <div class="widget-title">{{ generalS.general.questionFooter }}</div>
+                                <p>{{ generalS.general.descriptionQuestionFooter }}</p>
                                 <a href="{{ path('contact') }}" class="btn btn-success">Devis sous 48h</a>
                             </div>
                         </div>

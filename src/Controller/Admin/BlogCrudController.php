@@ -22,8 +22,13 @@ class BlogCrudController extends AbstractCrudController
     {
         return [
          TextField::new('titre'),
-            TextEditorField::new('contenu')->addJsFiles('js/trixFileUpload.js'),
-            ImageField::new('image')->setBasePath('images/upload/')->setUploadDir('public/images/upload'),
+            TextEditorField::new('contenu')
+                ->addJsFiles('js/trixFileUpload.js'),
+            ImageField::new('image')
+                ->setBasePath('images/upload/')
+                ->setUploadDir('public/images/upload')
+                ->setRequired(false)
+                ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
             DateField::new('date')
         ];
     }

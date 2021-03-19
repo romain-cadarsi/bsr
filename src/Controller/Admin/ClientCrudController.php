@@ -19,7 +19,11 @@ class ClientCrudController extends AbstractCrudController
     {
         return [
            TextField::new('nom'),
-            ImageField::new('image')->setBasePath('images/upload/')->setUploadDir('public/images/upload')->setRequired(false),
+            ImageField::new('image')
+                ->setBasePath('images/upload/')
+                ->setUploadDir('public/images/upload')
+                ->setRequired(false)
+                ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
         ];
     }
 }

@@ -20,11 +20,19 @@ class RealisationCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('titre')->setRequired(false),
-            TextField::new('adresse')->setRequired(false),
-            ChoiceField::new('type')->setChoices(['Logements' => 'logement', "Maison" => "maison", "Extension" => "extension" , "Entreprise" => 'entreprise']),
-            ImageField::new('image')->setBasePath('images/upload/')->setUploadDir('public/images/upload')->setRequired(false),
-            TextEditorField::new('contenu')->addJsFiles('js/trixFileUpload.js')
+            TextField::new('titre')
+                ->setRequired(false),
+            TextField::new('adresse')
+                ->setRequired(false),
+            ChoiceField::new('type')
+                ->setChoices(['Logements' => 'logement', "Maison" => "maison", "Extension" => "extension" , "Entreprise" => 'entreprise']),
+            ImageField::new('image')
+                ->setBasePath('images/upload/')
+                ->setUploadDir('public/images/upload')
+                ->setRequired(false)
+                ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
+            TextEditorField::new('contenu')
+                ->addJsFiles('js/trixFileUpload.js')
         ];
     }
 }
