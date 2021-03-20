@@ -27,7 +27,7 @@
                             <div class="post-image"> <a href="{{ path('actualite',{'id' : article.id}) }}"> <img alt="" src="{{ asset('images/upload/' ~ article.image) }}"> </a></div>
                             <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>
                                 <h2><a href="{{ path('actualite',{'id' : article.id}) }}">{{ article.titre }}</a></h2>
-                                <div> {{ article.contenu | u.truncate( 200, '...', false) |replace({'<div>': '', '</div>': ""}) | raw}} </div>
+                                <div> {{ article.displayContent | u.truncate( 200, '...', false) |replace({'<div>': '', '</div>': ""}) | raw}} </div>
                                 <a href="{{ path('actualite',{'id' : article.id}) }}" class="item-link">Lire plus <i class="icon-chevron-right"></i></a>
                             </div>
                         </div>
