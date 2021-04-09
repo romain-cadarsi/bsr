@@ -1,7 +1,10 @@
 <header id="header" class=" submenu-light header-always-fixed" data-fullwidth="true">
     <div class="header-inner">
-        <div class="container">
-
+        <div class="container flex-row">
+            <div class="mobile-action d-xl-none">
+                <a class="special btn btn-success text-light" style="z-index: 10;" href="{{ path('contact') }}">Contact</a>
+                <h4 class=" lh-0 pt-3"  style="z-index: 10;" ><a style="color:#210e0e" href="tel:{{ generalS.general.telephone }}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone }} </a></h4>
+            </div>
             <div id="logo">
                 <a href="{{ path('home') }}">
                     <span class="logo-default"><img src="{{ asset('images/upload/logo-dark.png') }}" alt="BSB Royal"></span>
@@ -20,14 +23,15 @@
                 <div class="container">
                     <nav>
                         <ul>
-                            <li><a class="special btn btn-light " href="tel:{{ generalS.general.telephone }}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone }} </a></li>
                             <li><a href="{{ path('home') }}#presentation" class="scroll-to">L'entreprise</a></li>
                             <li><a href="{{ path('realisations') }}">Réalisations</a></li>
                             <li><a href="{{ path('blogs') }}#presentation" class="scroll-to">Blogs</a></li>
                             <li><a href="{{ path('actualites') }}">Actualités</a></li>
                             <li><a class="special btn btn-success text-light" href="{{ path('contact') }}">Contact</a></li>
-
                         </ul>
+                        <div class="text-center telephone-button">
+                            <h4 class=" lh-0"><a style="color:#210e0e" href="tel:{{ generalS.general.telephone }}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone }} </a></h4>
+                        </div>
                     </nav>
                 </div>
             </div>

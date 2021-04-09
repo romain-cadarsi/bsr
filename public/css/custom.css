@@ -10,6 +10,17 @@
     min-height : 200px;
 }
 
+#header{
+    line-height: unset;
+}
+
+#mainMenu  nav{
+    margin-top:20px;
+}
+
+.lh-0{
+    line-height: 0px;
+}
 
 @media all and (min-width:1350px){
 
@@ -21,6 +32,25 @@
 
 }
 
+@media all and (max-width:1350px){
+    #mainMenu ul {
+        text-align: center;
+    }
+    .telephone-button{
+        margin-top: 20px;
+    }
+
+    #mainMenu nav>ul>li{
+        width: 50%;
+        margin: 0 auto !important;
+    }
+
+    .mobile-action{
+        position: absolute;
+        top:10px;
+    }
+
+}
 
 .realisation>.image{
     height: 200px;
