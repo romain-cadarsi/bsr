@@ -32,6 +32,11 @@ class Temoignage
      */
     private $nomPersonne;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Temoignage
     public function setNomPersonne(string $nomPersonne): self
     {
         $this->nomPersonne = $nomPersonne;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

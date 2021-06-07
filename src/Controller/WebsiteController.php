@@ -9,29 +9,26 @@ use App\Repository\ClientRepository;
 use App\Repository\CookiesRepository;
 use App\Repository\EmplacementRepository;
 use App\Repository\GeneralRepository;
+use App\Repository\ImagesAccueilRepository;
 use App\Repository\MentionsLegalesRepository;
 use App\Repository\NosGarantiesRepository;
 use App\Repository\PolitiqueDeConfidentialiteRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\TemoignageRepository;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterEntryPointPass;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class WebsiteController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function home(NosGarantiesRepository $nosGarantiesRepository, GeneralRepository $generalRepository,RealisationRepository $realisationRepository, ArticleRepository $articleRepository, ActualiteRepository $actualiteRepository,ClientRepository $clientRepository,TemoignageRepository $temoignageRepository): Response
+    public function home(NosGarantiesRepository $nosGarantiesRepository, GeneralRepository $generalRepository,RealisationRepository $realisationRepository, ArticleRepository $articleRepository, ActualiteRepository $actualiteRepository,ClientRepository $clientRepository,TemoignageRepository $temoignageRepository,ImagesAccueilRepository $imageAccueilRepository): Response
     {
         $generalItem = $generalRepository->find(1);
         $realisations = $realisationRepository->findAll();
@@ -40,6 +37,7 @@ class WebsiteController extends AbstractController
         $allClient = $clientRepository->findAll();
         $allTemoignages = $temoignageRepository->findAll();
         $allEngagements = $nosGarantiesRepository->findAll();
+        $imagesAccueil = $imageAccueilRepository->find(1);
         return $this->render('pages/home.html.twig', [
             "general" => $generalItem,
             'realisations' => array_reverse($realisations),
@@ -47,7 +45,8 @@ class WebsiteController extends AbstractController
             'clients' => array_reverse($allClient),
             'temoignages' => array_reverse($allTemoignages),
             'articles' => array_reverse($allArticles),
-            'engagements' => $allEngagements
+            'engagements' => $allEngagements,
+            "imageAccueil" => $imagesAccueil
         ]);
     }
 
@@ -188,7 +187,7 @@ class WebsiteController extends AbstractController
             $email = (new Email())
                 ->from('energie@clearnetgroup.fr')
                 ->subject("[$entrepriseName] Nouveau message Client")
-                ->html("Vous avez reçu un nouveau message de la part de $name. <b>Vous pourrez le recontacter sur son adresse mail <a href='mailto:$mail'> $mail</a> ou sur son numéro de téléphone : $phone . <br> <h2> A propos de : $subject </h2> <br><br> <b>$message<b>")
+                ->html("Vous avez reçu un nouveau message de la part de $name. <b>Vous pourrez le recontacter sur son adresse mail <a href='mailto:$mail'> $mail</a> ou sur son numéro de téléphone : $phone . <br> <br><br> <b>$message<b>")
                 ->to($repository->find(1)->getAdresseEmail());
             $email->ensureValidity();
             $mailer->send($email);

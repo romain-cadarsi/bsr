@@ -27,10 +27,6 @@ class Realisation
      */
     private $adresse;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
 
     /**
      * @ORM\Column(type="string", length=255,nullable=true)
@@ -41,6 +37,12 @@ class Realisation
      * @ORM\Column(type="string", length=10000)
      */
     private $contenu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CategorieRealisation::class, inversedBy="realisations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $type;
 
     public function getId(): ?int
     {
@@ -71,17 +73,6 @@ class Realisation
         return $this;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -103,6 +94,18 @@ class Realisation
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getType(): ?CategorieRealisation
+    {
+        return $this->type;
+    }
+
+    public function setType(?CategorieRealisation $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

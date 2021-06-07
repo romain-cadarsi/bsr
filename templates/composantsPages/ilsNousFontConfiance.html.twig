@@ -7,8 +7,10 @@
         </div>
         <div class="carousel arrows-visible testimonial testimonial-single" data-items="3" data-loop="true" data-autoplay="true" data-autoplay="2000" data-arrows="true" data-animate-in="fadeIn" data-animate-out="fadeOut">
             {% for client in clients %}
+                {% if client.afficherDansLesClients %}
                 <div class="background-image contain" style="background-image:url('{{ asset('images/upload/' ~ client.image) }}') ; height:200px">
                 </div>
+                {% endif %}
             {% endfor %}
 
 

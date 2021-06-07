@@ -33,14 +33,14 @@
         <div class="container">
             <div class="grid-system-demo-live">
                 <div class="row pb-0">
-                    <div class="col-6">
-                        <div class="home-image text-center" style="background-image: url('{{ asset('images/grosOeuvre.png') }}')">
-                            <h2 class="text-light vertical-align"> GROS OEUVRE </h2>
+                    <div class="col-6" data-animate="fadeInLeft">
+                        <div class="home-image text-center" style="background-image: url('{{ asset('images/upload/imageGauche.png') }}')">
+                            <h2 class="text-light vertical-align"> {{ imageAccueil.texteGauche | upper  }} </h2>
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="home-image text-center"  style="background-image: url('{{ asset('images/entrepriseGenerale.png') }}')">
-                            <h2 class="text-light vertical-align">ENTREPRISE GENERALE</h2>
+                        <div class="home-image text-center" data-animate="fadeInRight" style="background-image: url('{{ asset('images/upload/imageDroite.png') }}')">
+                            <h2 class="text-light vertical-align">{{ imageAccueil.texteDroite | upper }}</h2>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="col-lg-12 vertical-align">
-                        <div class="heading-text heading-section ">
+                        <div class="heading-text heading-section " data-animate="fadeInUp">
                             <h2><span>Qui Sommes nous ?</span></h2>
                             <p>{{ general.quiSommesNous | raw }}</p>
                         </div>
@@ -74,7 +74,7 @@
             <div class="row reverse">
                 <div class="col-lg-6">
                     <div class="col-lg-12 p-t-30 p-b-20">
-                        <div class="heading-text heading-section ">
+                        <div class="heading-text heading-section " data-animate="fadeInUp">
                             <h2><span>Nos chiffres clés</span></h2>
                             {{ general.nosChiffresCles | raw }}
                         </div>
@@ -96,7 +96,7 @@
                     <h2><span>Nos réalisations</span></h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" data-animate="fadeInUp">
                 {% for realisation in realisations|slice(0,3) %}
                     <div class="grid-item col-lg-4 {{ realisation.type }}">
                         <div class="grid-item-wrap m-4" style="height: 200px;">
@@ -134,7 +134,7 @@
         <div class="container">
             <div class="row">
                 {% for engagement in engagements %}
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="{{ 300 * loop.index0 }}">
                     <div class="icon-box medium clean">
                         <div class="icon visible"> <a href="#"><i class="fa fa-{{ engagement.icone }}"></i></a> </div>
                         <h3>{{ engagement.titre }}</h3>
@@ -159,7 +159,7 @@
             <div id="article" class="grid-layout post-3-columns m-b-30" data-item="post-item">
 
                 {% for article in articles | slice(0,3) %}
-                    <div class="post-item border">
+                    <div class="post-item border" data-animate="fadeInUp" data-animate-delay="{{ 300 * loop.index0 }}">
                         <div class="post-item-wrap">
                             <div class="post-image"> <a href="{{ path('actualite',{'id' : article.id}) }}"> <img alt="" src="{{ asset('images/upload/' ~ article.image) }}"> </a></div>
                             <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>
@@ -190,7 +190,7 @@
                 {% for temoignage in temoignages %}
                     <div class="testimonial-item">
                         {% if temoignage.client is not null %}
-                            <img src="{{ asset('images/upload/' ~ temoignage.client.image)  }}" alt="">
+                            <img src="{% if temoignage.image is null %}{{ asset('images/upload/' ~ temoignage.client.image)  }}{% else %}{{ asset('images/upload/' ~ temoignage.image)  }}{% endif %}" alt="">
                         {% else %}
                             <img src="{{ asset('images/user.png') }}" alt="">
                         {% endif %}

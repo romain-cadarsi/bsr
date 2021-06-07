@@ -27,6 +27,11 @@ class Client
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $afficherDansLesClients;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,5 +63,17 @@ class Client
 
     public function __toString(){
         return $this->nom;
+    }
+
+    public function getAfficherDansLesClients(): ?bool
+    {
+        return $this->afficherDansLesClients;
+    }
+
+    public function setAfficherDansLesClients(bool $afficherDansLesClients): self
+    {
+        $this->afficherDansLesClients = $afficherDansLesClients;
+
+        return $this;
     }
 }
