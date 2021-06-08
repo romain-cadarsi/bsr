@@ -26,14 +26,14 @@ class ImagesAccueilCrudController extends AbstractCrudController
         return [
             TextField::new('texteGauche'),
             ImageField::new('imageGauche')
-                ->setBasePath('images/upload/')
-                ->setUploadDir('public/images/upload')
+                ->setBasePath('websiteImage/')
+                ->setUploadDir('public/websiteImage/')
                 ->setUploadedFileNamePattern("imageGauche.png")
                 ->setRequired(false),
             TextField::new('texteDroite'),
             ImageField::new('imageDroite')
-                ->setBasePath('images/upload/')
-                ->setUploadDir('public/images/upload')
+                ->setBasePath('websiteImage/')
+                ->setUploadDir('public/websiteImage/')
                 ->setUploadedFileNamePattern("imageDroite.png")
                 ->setRequired(false)
 
