@@ -3,11 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Symfony\Component\DomCrawler\Image;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class ClientCrudController extends AbstractCrudController
 {
@@ -29,4 +32,14 @@ class ClientCrudController extends AbstractCrudController
                 ->setHelp("Si cette option est activé, ce client se retrouvera dans la section 'Ils nous font confiance'")
         ];
     }
+
+    public function createEditFormBuilder(EntityDto $entityDto, KeyValueStore $formOptions, AdminContext $context): FormBuilderInterface
+    {
+        if(!file_exists('./images/upload/'.$entityDto->getInstance()->getImage())) {
+            $entityDto->getInstance()->setImage(null);
+        }
+        return parent::createEditFormBuilder($entityDto, $formOptions, $context);
+    }
+
+
 }
