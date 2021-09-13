@@ -1062,7 +1062,7 @@ Topbar
   #header[data-fullwidth="true"] .header-inner .container,
   #header[data-fullwidth="true"] #header-wrap .container {
     max-width: 100%;
-    padding: 0 30px; }
+    padding: 0 10px; }
   #header.header-modern:not(.header-active) {
     margin: 40px auto 0;
     width: 1200px; }
@@ -1257,7 +1257,8 @@ HEADER: Responsive
       display: inline-block; }
       #header #logo > a img {
         max-height: 80px;
-        padding-bottom: 6px; }
+        padding-bottom: 6px;
+        width: 100%; }
     #header #logo .logo-responsive {
       display: block; }
     #header #logo .logo-responsive-dark {
@@ -3418,8 +3419,7 @@ h6.font-parisienne {
       padding-bottom: 100px;
       align-self: center !important; }
     .inspiro-slider .slide .slide-captions {
-      position: relative;
-      text-align: left; }
+      position: relative; }
       .inspiro-slider .slide .slide-captions h1 {
         font-size: 80px;
         font-weight: 700;

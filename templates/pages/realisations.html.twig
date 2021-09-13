@@ -7,12 +7,12 @@
     </style>
 {% endblock %}
 {% block content %}
-    <section id="page-title" class="text-light" style="background-image:url('{{ asset('images/realisation.jpg') }}'); background-size: cover; background-position: center center;">
+    <section id="page-title" class="text-light" style="background-image:url('{{ asset('websiteImage/realisation.jpg') }}'); background-size: cover; background-position: center center;">
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="page-title">
                 <h1>Nos réalisations</h1>
-                <span>Pour découvrir notre savoir-faire et notre expertise, consultez ici nos dernières réalisations.</span>
+                {% if generalS.imageAccueil.texteRealisations != null or generalS.imageAccueil.texteRealisations != '' %}<p class="slider-text"> {{ generalS.imageAccueil.texteRealisations }}</p>{% endif %}
             </div>
         </div>
     </section>
@@ -21,16 +21,16 @@
             {#            Debut grid#}
             <div class="grid-filter text-center mt-5 mb-5" data-layout="#realisations" data-animate="fadeInUp" data-animate-delay="0">
                 <ul>
+
                     <li class="" id="tous"><a href="#" data-category="*"> Toutes les Réalisations</a></li>
-                    <li class="" id="logement"><a data-category=".logement" href="#">Logements</a></li>
-                    <li class="" id="maison"><a data-category=".maison" href="#">Maisons Individuelles</a></li>
-                    <li class="" id="extension"><a data-category=".extension" href="#">Extension</a></li>
-                    <li class="" id="entreprise"><a data-category=".entreprise" href="#">Entreprise generale</a></li>
+                    {% for categorie in categories %}
+                    <li class="" id="{{ categorie.id }}"><a data-category=".{{ categorie.id }}" href="#">{{ categorie.titre }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div id="realisations"  data-lightbox="gallery" class="grid-layout grid-3-columns grid-loaded" data-margin="30" data-margin-xs="10" data-item="grid-item" data-layout="fitRows" data-animate="fadeInUp" data-animate-delay="0">
                 {% for realisation in realisations %}
-                    <div class="grid-item {{ realisation.type }}">
+                    <div class="grid-item {{ realisation.type.id }}">
                         <div class="grid-item-wrap m-4" style="height: 200px;">
                             <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax" style="height: 200px;"><div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')">
                                 </div></a>

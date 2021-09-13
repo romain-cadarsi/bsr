@@ -21,6 +21,15 @@
 .lh-0{
     line-height: 0px;
 }
+.slider-top {
+    top : -20%;
+    position : relative;
+}
+.slider-bottom{
+    top : 20%;
+    position : relative;
+
+}
 
 @media all and (min-width:1350px){
 
@@ -48,6 +57,15 @@
     .mobile-action{
         position: absolute;
         top:10px;
+    }
+    .center-sm,.slider-text{
+        text-align: center !important;
+    }
+    .slider-top,.slider-bottom{
+        top : unset !important;
+    }
+    .sm-relative{
+        position: relative;
     }
 
 }

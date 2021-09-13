@@ -92,6 +92,41 @@ class General
      */
     private $descriptionQuestionFooter;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $positionSloganAccueil;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $sousTexteSlogan;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $couleurSlogan;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $policeGeneral;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $policeTitres;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $accueilTitreSection1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $accueilTitreSection2;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -273,6 +308,90 @@ class General
     public function setDescriptionQuestionFooter(string $descriptionQuestionFooter): self
     {
         $this->descriptionQuestionFooter = $descriptionQuestionFooter;
+
+        return $this;
+    }
+
+    public function getPositionSloganAccueil(): ?string
+    {
+        return $this->positionSloganAccueil;
+    }
+
+    public function setPositionSloganAccueil(string $positionSloganAccueil): self
+    {
+        $this->positionSloganAccueil = $positionSloganAccueil;
+
+        return $this;
+    }
+
+    public function getSousTexteSlogan(): ?string
+    {
+        return $this->sousTexteSlogan;
+    }
+
+    public function setSousTexteSlogan(?string $sousTexteSlogan): self
+    {
+        $this->sousTexteSlogan = $sousTexteSlogan;
+
+        return $this;
+    }
+
+    public function getCouleurSlogan(): ?string
+    {
+        return $this->couleurSlogan;
+    }
+
+    public function setCouleurSlogan(?string $couleurSlogan): self
+    {
+        $this->couleurSlogan = $couleurSlogan;
+
+        return $this;
+    }
+
+    public function getPoliceGeneral(): ?string
+    {
+        return $this->policeGeneral;
+    }
+
+    public function setPoliceGeneral(?string $policeGeneral): self
+    {
+        $this->policeGeneral = $policeGeneral;
+
+        return $this;
+    }
+
+    public function getPoliceTitres(): ?string
+    {
+        return $this->policeTitres;
+    }
+
+    public function setPoliceTitres(?string $policeTitres): self
+    {
+        $this->policeTitres = $policeTitres;
+
+        return $this;
+    }
+
+    public function getAccueilTitreSection1(): ?string
+    {
+        return $this->accueilTitreSection1;
+    }
+
+    public function setAccueilTitreSection1(?string $accueilTitreSection1): self
+    {
+        $this->accueilTitreSection1 = $accueilTitreSection1;
+
+        return $this;
+    }
+
+    public function getAccueilTitreSection2(): ?string
+    {
+        return $this->accueilTitreSection2;
+    }
+
+    public function setAccueilTitreSection2(?string $accueilTitreSection2): self
+    {
+        $this->accueilTitreSection2 = $accueilTitreSection2;
 
         return $this;
     }

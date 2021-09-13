@@ -37,6 +37,46 @@ class ImagesAccueil
      */
     private $texteGauche;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageRealisations;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $texteRealisations;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageBlogs;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $texteBlogs;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageActualites;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $texteActualites;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageContact;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $texteContact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +126,102 @@ class ImagesAccueil
     public function setTexteGauche(string $texteGauche): self
     {
         $this->texteGauche = $texteGauche;
+
+        return $this;
+    }
+
+    public function getImageRealisations(): ?string
+    {
+        return $this->imageRealisations;
+    }
+
+    public function setImageRealisations(?string $imageRealisations): self
+    {
+        $this->imageRealisations = $imageRealisations;
+
+        return $this;
+    }
+
+    public function getTexteRealisations(): ?string
+    {
+        return $this->texteRealisations;
+    }
+
+    public function setTexteRealisations(?string $texteRealisations): self
+    {
+        $this->texteRealisations = $texteRealisations;
+
+        return $this;
+    }
+
+    public function getImageBlogs(): ?string
+    {
+        return $this->imageBlogs;
+    }
+
+    public function setImageBlogs(?string $imageBlogs): self
+    {
+        $this->imageBlogs = $imageBlogs;
+
+        return $this;
+    }
+
+    public function getTexteBlogs(): ?string
+    {
+        return $this->texteBlogs;
+    }
+
+    public function setTexteBlogs(?string $texteBlogs): self
+    {
+        $this->texteBlogs = $texteBlogs;
+
+        return $this;
+    }
+
+    public function getImageActualites(): ?string
+    {
+        return $this->imageActualites;
+    }
+
+    public function setImageActualites(?string $imageActualites): self
+    {
+        $this->imageActualites = $imageActualites;
+
+        return $this;
+    }
+
+    public function getTexteActualites(): ?string
+    {
+        return $this->texteActualites;
+    }
+
+    public function setTexteActualites(?string $texteActualites): self
+    {
+        $this->texteActualites = $texteActualites;
+
+        return $this;
+    }
+
+    public function getImageContact(): ?string
+    {
+        return $this->imageContact;
+    }
+
+    public function setImageContact(?string $imageContact): self
+    {
+        $this->imageContact = $imageContact;
+
+        return $this;
+    }
+
+    public function getTexteContact(): ?string
+    {
+        return $this->texteContact;
+    }
+
+    public function setTexteContact(?string $texteContact): self
+    {
+        $this->texteContact = $texteContact;
 
         return $this;
     }

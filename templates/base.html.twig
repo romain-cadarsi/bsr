@@ -11,6 +11,16 @@
 
     {% block css %}
         {% include('components/css.html.twig') %}
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family={{ generalS.general.policeGeneral }}&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family={{ generalS.general.policeTitres }}&display=swap');
+            *:not(.fa,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ,h1>span, h2>span , h3>span, h4>span){
+                font-family: {{ generalS.general.policeGeneral }} !important;
+            }
+            h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ,h1>span, h2>span , h3>span, h4>span{
+                font-family : {{ generalS.general.policeTitres }} !important;
+            }
+        </style>
     {% endblock %}
 
 </head>

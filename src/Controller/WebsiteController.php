@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\ActualiteRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\BlogRepository;
+use App\Repository\CategorieRealisationRepository;
 use App\Repository\ClientRepository;
 use App\Repository\CookiesRepository;
 use App\Repository\EmplacementRepository;
@@ -53,13 +54,15 @@ class WebsiteController extends AbstractController
     /**
      * @Route("/realisations", name="realisations")
      */
-    public function realisation(RealisationRepository $realisationRepository,ClientRepository $clientRepository): Response
+    public function realisation(RealisationRepository $realisationRepository,ClientRepository $clientRepository,CategorieRealisationRepository $categorieRealisationRepository): Response
     {
         $realisations = $realisationRepository->findAll();
         $allClient = $clientRepository->findAll();
+        $categoriesRealisations = $categorieRealisationRepository->findAll();
         return $this->render('pages/realisations.html.twig', [
             'realisations' => $realisations,
-            'clients' => $allClient
+            'clients' => $allClient,
+            'categories' => $categoriesRealisations
         ]);
     }
     /**

@@ -3,7 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Actualite;
+use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class ActualiteCrudController extends AbstractCrudController
 {
@@ -12,14 +16,4 @@ class ActualiteCrudController extends AbstractCrudController
         return Actualite::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
 }

@@ -67,7 +67,7 @@
         #header-wrap {
             .container {
                 max-width: 100%;
-                padding: 0 30px;
+                padding: 0 10px;
             }
         }
     }
@@ -380,7 +380,7 @@ HEADER: Responsive
 
             >a {
                 display: inline-block;
-                img {max-height: 80px;padding-bottom: 6px;}
+                img {max-height: 80px;padding-bottom: 6px; width: 100%}
             }
 
             .logo-responsive {

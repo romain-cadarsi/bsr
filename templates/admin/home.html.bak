@@ -1,0 +1,33 @@
+{% extends("@EasyAdmin/page/content.html.twig") %}
+
+{% block main %}
+<div class="content-panel">
+    <div class="container pt-4 pb-4">
+        <h2> Manuel D'utilisation </h2>
+        <p>Cet accueil listera toutes les actions possibles afin de personnaliser votre site web. </p>
+    </div>
+
+    <h3> Les différents backlink de dashboard</h3>
+    <ul>
+        <li> BSBRoyal : <a href="https://bsbroyalconstruction.fr/admin"> Voir le lien </a> / MDP : sBeAmrTPtT6sEVzy</li>
+        <li> Ecobati : <a href="https://ecobati.spidertec.fr/admin"> Voir le lien </a> / MDP : +NW3-T3qzhp%K</li>
+        <li> Efebat : <a href="https://efebat.spidertec.fr/admin"> Voir le lien </a> / MDP : _pTudHY)VC5e3</li>
+        <li> LesFacadesVertes : <a href="https://lesfacadesvertes.spidertec.fr/admin"> Voir le lien </a> / MDP : 9WQB8f8&Zu2ee</li>
+        <li> Mimhabitat : <a href="https://mimhabitat.spidertec.fr/admin"> Voir le lien </a> / MDP : Tu3eR}{EzC~pj</li>
+        <li> ParisConstructions : <a href="https://parisconstructions.spidertec.fr/admin"> Voir le lien </a> / MDP : BYvryk8?H^!De</li>
+        <li> PrestabetonTP : <a href="https://prestabetontp.fr.spidertec.fr/admin"> Voir le lien </a> / MDP : Wbnr9_68</li>
+        <li> Batican : <a href="https://batican.spidertec.fr/admin"> Voir le lien </a> / MDP : zIsb97!1</li>
+        <li> B2lHabitat : <a href="https://b2lhabitat.spidertec.fr/admin"> Voir le lien </a> / MDP : Owau6_53</li>
+        <li> CouvertureIDF : <a href="https://couvertureidf.spidertec.fr/admin"> Voir le lien </a> / MDP : Zoe15b&5</li>
+        <li> Durkal : <a href="https://durkal.spidertec.fr/admin"> Voir le lien </a> / MDP : nshS97$7</li>
+        <li> Ekkoplus : <a href="https://ekkoplus.spidertec.fr/admin"> Voir le lien </a> / MDP : izFi27*7</li>
+        <li> EntBeka : <a href="https://ent-beka.spidertec.fr/admin"> Voir le lien </a> / MDP : Bc3y&1t3</li>
+        <li> EquoConstruction : <a href="https://equo-construction.spidertec.fr/admin"> Voir le lien </a> / MDP : X8opy6_2</li>
+        <li> NeufCarrelage : <a href="https://neufcarrelage.spidertec.fr/admin"> Voir le lien </a> / MDP : yiUc76^6</li>
+        <li> PavageNormand : <a href="https://pavagenormand.spidertec.fr/admin"> Voir le lien </a> / MDP : Miiq3_82</li>
+        <li> SasAldea : <a href="https://sas-aldea.spidertec.fr/admin"> Voir le lien </a> / MDP : 5Wrj&8k9</li>
+        <li> ScrConstruction : <a href="https://scrconstruction.spidertec.fr/admin"> Voir le lien </a> / MDP : Og2&tk29</li>
+        <li> TsmEtanche : <a href="https://tsm-etanche.spidertec.fr/admin"> Voir le lien </a> / MDP : Iya56&8z</li>
+    </ul>
+</div>
+{% endblock %}

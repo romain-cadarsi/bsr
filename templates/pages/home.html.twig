@@ -19,11 +19,14 @@
 
         <div class="slide" data-bg-image="{{ asset('images/upload/' ~ general.imageAccueil) }}">
             <div class="bg-overlay"></div>
-            <div class="container text-center pt-5" style="padding-top: -30px; align-self: unset !important;">
-                <div class="slide-captions text-center text-light">
-                    <h2 data-animate="fadeInUp" style="font-size: 44px" data-animate-delay="600">{{ general.slogan | raw }}</h2>
+            <div class="container {{ general.positionSloganAccueil }}">
+                <div class="center-sm" >
+                    <div class="slide-captions text-light">
+                        <h2 data-animate="fadeInUp" style="font-size: 44px ;color : {{ general.couleurSlogan }} !important" class="slider-text" data-animate-delay="600">{{ general.slogan | raw }}</h2>
+                        {% if general.sousTexteSlogan != null or general.sousTexteSlogan != '' %}<p class="slider-text" style="color : {{ general.couleurSlogan }} !important"> {{ general.sousTexteSlogan }}</p>{% endif %}
+                    </div>
+                    <a href="{{ path('contact') }}" class="btn btn-success" data-animate="fadeInUp" data-animate-delay="600">Demande de devis express</a>
                 </div>
-                <a href="{{ path('contact') }}" class="btn btn-success" data-animate="fadeInUp" data-animate-delay="600">Demande de devis express</a>
             </div>
         </div>
 
@@ -54,7 +57,7 @@
                 <div class="col-lg-6">
                     <div class="col-lg-12 vertical-align">
                         <div class="heading-text heading-section " data-animate="fadeInUp">
-                            <h2><span>Qui Sommes nous ?</span></h2>
+                            <h2><span>{{ general.accueilTitreSection1 |default('Qui sommes nous ? ')}}</span></h2>
                             <p>{{ general.quiSommesNous | raw }}</p>
                         </div>
                     </div>
@@ -75,7 +78,7 @@
                 <div class="col-lg-6">
                     <div class="col-lg-12 p-t-30 p-b-20">
                         <div class="heading-text heading-section " data-animate="fadeInUp">
-                            <h2><span>Nos chiffres clés</span></h2>
+                            <h2><span>{{ general.accueilTitreSection2 | default('Nos chiffres clés')}} </span></h2>
                             {{ general.nosChiffresCles | raw }}
                         </div>
                     </div>
@@ -134,13 +137,13 @@
         <div class="container">
             <div class="row">
                 {% for engagement in engagements %}
-                <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="{{ 300 * loop.index0 }}">
-                    <div class="icon-box medium clean">
-                        <div class="icon visible"> <a href="#"><i class="fa fa-{{ engagement.icone }}"></i></a> </div>
-                        <h3>{{ engagement.titre }}</h3>
-                        <p>{{ engagement.contenu }} </p>
+                    <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="{{ 300 * loop.index0 }}">
+                        <div class="icon-box medium clean">
+                            <div class="icon visible"> <a href="#"><i class="fa fa-{{ engagement.icone }}"></i></a> </div>
+                            <h3>{{ engagement.titre }}</h3>
+                            <p>{{ engagement.contenu }} </p>
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
 
             </div>
@@ -191,6 +194,8 @@
                     <div class="testimonial-item">
                         {% if temoignage.client is not null %}
                             <img src="{% if temoignage.image is null %}{{ asset('images/upload/' ~ temoignage.client.image)  }}{% else %}{{ asset('images/upload/' ~ temoignage.image)  }}{% endif %}" alt="">
+                        {% elseif temoignage.image is not null %}
+                            <img src="{{ asset('images/upload/' ~ temoignage.image)  }}" alt="">
                         {% else %}
                             <img src="{{ asset('images/user.png') }}" alt="">
                         {% endif %}

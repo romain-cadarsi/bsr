@@ -43,7 +43,7 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
             MenuItem::linkToCrud('General', 'fa fa-gears', General::class),
-            MenuItem::linkToCrud('Images accueil', 'fa fa-images', ImagesAccueil::class),
+            MenuItem::linkToCrud('Images du site', 'fa fa-images', ImagesAccueil::class),
             MenuItem::linkToCrud('Blogs', 'fa fa-blog', Blog::class),
             MenuItem::linkToCrud('Clients', 'fa fa-user', \App\Entity\Client::class),
             MenuItem::linkToCrud('Emplacements', 'fa fa-map-marker', Emplacement::class),
