@@ -10,7 +10,7 @@ class ArticleService{
 
     private $articleRepository;
 
-    public function __construct(ArticleRepository $articleRepository,){
+    public function __construct(ArticleRepository $articleRepository){
         $this->articleRepository = $articleRepository;
     }
 
