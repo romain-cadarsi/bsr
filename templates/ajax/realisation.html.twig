@@ -1,12 +1,36 @@
 <div class="portfolio-ajax-page realisation-ajax">
-    <div class="row">
-           <div class="col-lg-8 background-image" style="background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')" ></div>
-        <div class="col-lg-4">
-            <div class="project-description">
-                <h2>{{ realisation.titre }}</h2>
-                <h5>{{ realisation.adresse }}</h5>
-                <div>{{ realisation.contenu | raw }}</div>
-            </div>
+    <div class="container">
+       <div class="carousel" data-items="2" data-dots="true" data-lightbox="gallery" id="mon">
+           {% if realisation.image %}
+               <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+                   <div class="portfolio-item-wrap">
+                       <div class="portfolio-image">
+                           <a href="#"><img src="{{ asset('images/upload/' ~ realisation.image) }}" alt=""></a>
+                       </div>
+                       <div class="portfolio-description">
+                           <a title="" data-lightbox="gallery-image" href="{{ asset('images/upload/' ~ realisation.image) }}" class="btn btn-light btn-rounded">Zoom</a>
+                       </div>
+                   </div>
+               </div>
+           {% endif %}
+            <!-- portfolio item -->
+            {% for image in realisation.images %}
+                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{ asset(image.url) }}" alt="{{ image.altDesc }}"></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <a title="{{ image.altDesc }}" data-lightbox="gallery-image" href="{{ asset(image.url) }}" class="btn btn-light btn-rounded">Zoom</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="project-description">
+            <h2>{{ realisation.titre }}</h2>
+            <h5>{{ realisation.adresse }}</h5>
+            <div>{{ realisation.contenu | raw }}</div>
         </div>
     </div>
 </div>

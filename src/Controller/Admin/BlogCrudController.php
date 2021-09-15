@@ -25,15 +25,14 @@ class BlogCrudController extends AbstractCrudController
     {
         return [
             FormField::addPanel('Informations du blog')->setCssClass('field-form_panel col-12'),
-         TextField::new('titre'),
-
+            TextField::new('titre'),
             ImageField::new('image')
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setRequired(false)
                 ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
+            TextField::new('altDescription')->setLabel("Description alternative de l'image")->setHelp("Sera utilisé dans les options d'accessibilité afin de décrire l'image aux non voyants"),
             DateField::new('date'),
-
             FormField::addPanel('Contenu du blog')->setCssClass('field-form_panel col-12'),
             TextEditorField::new('contenu')
                 ->addJsFiles('js/trixFileUpload.js'),

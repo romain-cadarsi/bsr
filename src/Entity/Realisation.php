@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RealisationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,6 +45,21 @@ class Realisation
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="realisation", orphanRemoval=true, cascade={"persist"})
+     */
+    private $images;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $altDesc;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,6 +123,48 @@ class Realisation
     public function setType(?CategorieRealisation $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setRealisation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getRealisation() === $this) {
+                $image->setRealisation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAltDesc(): ?string
+    {
+        return $this->altDesc;
+    }
+
+    public function setAltDesc(string $altDesc): self
+    {
+        $this->altDesc = $altDesc;
 
         return $this;
     }

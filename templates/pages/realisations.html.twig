@@ -32,7 +32,7 @@
                 {% for realisation in realisations %}
                     <div class="grid-item {{ realisation.type.id }}">
                         <div class="grid-item-wrap m-4" style="height: 200px;">
-                            <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax" style="height: 200px;"><div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}')">
+                            <a href="{{ path('realisationAjax',{'realisation' : realisation.id}) }}" data-lightbox="ajax" style="height: 200px;"><div class="grid-image background-image rounded" style="height: 200px; background-image: url('{{ asset('images/upload/' ~ realisation.image) }}') ; background-size: contain">
                                 </div></a>
                         </div>
                         <div class="text-center">

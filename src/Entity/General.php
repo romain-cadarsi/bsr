@@ -127,6 +127,11 @@ class General
      */
     private $accueilTitreSection2;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hidePhoneOnMobile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -392,6 +397,18 @@ class General
     public function setAccueilTitreSection2(?string $accueilTitreSection2): self
     {
         $this->accueilTitreSection2 = $accueilTitreSection2;
+
+        return $this;
+    }
+
+    public function getHidePhoneOnMobile(): ?bool
+    {
+        return $this->hidePhoneOnMobile;
+    }
+
+    public function setHidePhoneOnMobile(bool $hidePhoneOnMobile): self
+    {
+        $this->hidePhoneOnMobile = $hidePhoneOnMobile;
 
         return $this;
     }

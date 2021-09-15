@@ -30,6 +30,7 @@ class ArticleCrudController extends AbstractCrudController
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setUploadedFileNamePattern('[day][month][year][timestamp]-[name].[extension]'),
+            TextField::new('altDescription')->setLabel("Description alternative de l'image")->setHelp("Sera utilisé dans les options d'accessibilité afin de décrire l'image aux non voyants"),
             DateField::new('date'),
             FormField::addPanel('Contenu du blog')->setCssClass('field-form_panel col-12'),
             TextEditorField::new('contenu')

@@ -15,6 +15,7 @@ use App\Entity\NosGaranties;
 use App\Entity\PolitiqueDeConfidentialite;
 use App\Entity\Realisation;
 use App\Entity\Temoignage;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -54,7 +55,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Témoignages', 'fa fa-file', Temoignage::class),
             MenuItem::linkToCrud('Nos Garanties', 'fa fa-check', NosGaranties::class),
             MenuItem::linkToCrud('Lien sociaux', 'fa fa-share-alt', Actualite::class),
-            MenuItem::linkToCrud('Actualités', 'fa fa-newspaper', Article::class),
+            MenuItem::linkToCrud('Articles', 'fa fa-newspaper', Article::class),
             MenuItem::subMenu('RGPD' , 'fa fa-globe')->setSubItems([
                 MenuItem::linkToCrud('Cookies', 'fa fa-cogs', Cookies::class),
                 MenuItem::linkToCrud('Politique de confidentialité', 'fa fa-cogs', PolitiqueDeConfidentialite::class),
@@ -63,5 +64,12 @@ class DashboardController extends AbstractDashboardController
         ];
 
 
+    }
+
+    public function configureActions(): Actions
+    {
+        $actions = parent::configureActions();
+        $actions->add(Crud::PAGE_INDEX,'detail');
+        return $actions->add(Crud::PAGE_EDIT,'detail');
     }
 }

@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -37,6 +38,7 @@ class ImagesAccueilCrudController extends AbstractCrudController
                 ->setUploadDir('public/websiteImage/')
                 ->setUploadedFileNamePattern("imageGauche.png")
                 ->setRequired(false),
+            ColorField::new('couleurGauche')->setLabel('Couleur du texte'),
 
             FormField::addPanel('Image droite')->setCssClass(' field-form_panel col-6')
                 ->setHelp("Image de droite contenant du texte sur la page d'accueil"),
@@ -46,6 +48,7 @@ class ImagesAccueilCrudController extends AbstractCrudController
                 ->setUploadDir('public/websiteImage/')
                 ->setUploadedFileNamePattern("imageDroite.png")
                 ->setRequired(false),
+             ColorField::new('couleurDroite')->setLabel('Couleur du texte'),
 
              FormField::addPanel('Image Réalisations')->setCssClass(' field-form_panel col-6'),
             TextField::new('texteRealisations')->setLabel('Texte')->setHelp('Texte à afficher sous le titre de la page'),

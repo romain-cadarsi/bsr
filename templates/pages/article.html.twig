@@ -20,7 +20,7 @@
                             <div class="post-item-wrap">
                                 <div class="post-image">
                                     <a href="">
-                                        <img alt="" src="{{ asset('images/upload/' ~ article.image) }}">
+                                        <img alt="{{ article.altDescription }}" src="{{ asset('images/upload/' ~ article.image) }}">
                                     </a>
                                 </div>
                                 <div class="post-item-description">
@@ -62,7 +62,7 @@
                         <div class="post-thumbnail-list">
                             {% for article in otherArticles %}
                                 <div class="post-thumbnail-entry">
-                                    <img alt="" src="{{ asset('images/upload/' ~ article.image) }}">
+                                    <img alt="{{ article.altDescription }}" src="{{ asset('images/upload/' ~ article.image) }}">
                                     <div class="post-thumbnail-content">
                                         <a href="{{ path('actualite',{'id' : article.id}) }}">{{ article.titre }}</a>
                                         <span class="post-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>

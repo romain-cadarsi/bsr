@@ -22,7 +22,7 @@
             <div class="container {{ general.positionSloganAccueil }}">
                 <div class="center-sm" >
                     <div class="slide-captions text-light">
-                        <h2 data-animate="fadeInUp" style="font-size: 44px ;color : {{ general.couleurSlogan }} !important" class="slider-text" data-animate-delay="600">{{ general.slogan | raw }}</h2>
+                        <h1 data-animate="fadeInUp" style="font-size: 44px ;color : {{ general.couleurSlogan }} !important" class="slider-text" data-animate-delay="600">{{ general.slogan | raw }}</h1>
                         {% if general.sousTexteSlogan != null or general.sousTexteSlogan != '' %}<p class="slider-text" style="color : {{ general.couleurSlogan }} !important"> {{ general.sousTexteSlogan }}</p>{% endif %}
                     </div>
                     <a href="{{ path('contact') }}" class="btn btn-success" data-animate="fadeInUp" data-animate-delay="600">Demande de devis express</a>
@@ -38,12 +38,12 @@
                 <div class="row pb-0">
                     <div class="col-6" data-animate="fadeInLeft">
                         <div class="home-image text-center" style="background-image: url('{{ asset('websiteImage/imageGauche.png') }}')">
-                            <h2 class="text-light vertical-align"> {{ imageAccueil.texteGauche | upper  }} </h2>
+                            <h2 class=" vertical-align" style="color: {{ imageAccueil.couleurGauche ?? '#ffffff' }}"> {{ imageAccueil.texteGauche | upper  }} </h2>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 " >
                         <div class="home-image text-center" data-animate="fadeInRight" style="background-image: url('{{ asset('websiteImage/imageDroite.png') }}')">
-                            <h2 class="text-light vertical-align">{{ imageAccueil.texteDroite | upper }}</h2>
+                            <h2 class=" vertical-align" style="color: {{ imageAccueil.couleurDroite ?? '#ffffff' }}">{{ imageAccueil.texteDroite | upper }}</h2>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,9 @@
         </div>
     </section>
 
-    <section class="pt-0 pb-0" id="presentation">
+    <div id="presentation"  class="space"></div>
+    <div class="space"></div>
+    <section class="pt-0 pb-0" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -164,7 +166,7 @@
                 {% for article in articles | slice(0,3) %}
                     <div class="post-item border" data-animate="fadeInUp" data-animate-delay="{{ 300 * loop.index0 }}">
                         <div class="post-item-wrap">
-                            <div class="post-image"> <a href="{{ path('actualite',{'id' : article.id}) }}"> <img alt="" src="{{ asset('images/upload/' ~ article.image) }}"> </a></div>
+                            <div class="post-image"> <a href="{{ path('actualite',{'id' : article.id}) }}"> <img alt="{{ article.altDescription }}" src="{{ asset('images/upload/' ~ article.image) }}"> </a></div>
                             <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ article.date | date('M d, Y') }}</span>
                                 <h2><a href="{{ path('actualite',{'id' : article.id}) }}">{{ article.titre }}</a></h2>
                                 <div> {{ article.contenu | u.truncate( 200, '...', false) |replace({'<div>': '', '</div>': ""}) | raw}} </div>
@@ -193,11 +195,11 @@
                 {% for temoignage in temoignages %}
                     <div class="testimonial-item">
                         {% if temoignage.client is not null %}
-                            <img src="{% if temoignage.image is null %}{{ asset('images/upload/' ~ temoignage.client.image)  }}{% else %}{{ asset('images/upload/' ~ temoignage.image)  }}{% endif %}" alt="">
+                            <img src="{% if temoignage.image is null %}{{ asset('images/upload/' ~ temoignage.client.image)  }}{% else %}{{ asset('images/upload/' ~ temoignage.image)  }}{% endif %}" alt="{{ temoignage.altDescription }}">
                         {% elseif temoignage.image is not null %}
-                            <img src="{{ asset('images/upload/' ~ temoignage.image)  }}" alt="">
+                            <img src="{{ asset('images/upload/' ~ temoignage.image)  }}" alt="{{ temoignage.altDescription }}">
                         {% else %}
-                            <img src="{{ asset('images/user.png') }}" alt="">
+                            <img src="{{ asset('images/user.png') }}" alt="Pas de photo du client">
                         {% endif %}
                         <p> {{ temoignage.temoignage }}</p>
                         <span>{{ temoignage.nomPersonne }}</span>

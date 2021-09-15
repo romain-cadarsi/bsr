@@ -26,7 +26,7 @@
                 {% for blog in blogs %}
                 <div class="post-item border">
                     <div class="post-item-wrap">
-                        <div class="post-image"> <a href="{{ path('blog',{'id' : blog.id}) }}"> <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}"> </a></div>
+                        <div class="post-image"> <a href="{{ path('blog',{'id' : blog.id}) }}"> <img alt="{{ blog.altDescription }}" src="{{ asset('images/upload/' ~ blog.image) }}"> </a></div>
                         <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ blog.date | date('M d, Y') }}</span>
                             <h2><a href="{{ path('blog',{'id' : blog.id}) }}">{{ blog.titre }}</a></h2>
                             <div> {{ blog.displayContent | u.truncate( 200, '...', false) |replace({'<div>': '', '</div>': ""}) | raw}} </div>

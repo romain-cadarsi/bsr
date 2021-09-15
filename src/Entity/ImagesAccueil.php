@@ -77,6 +77,16 @@ class ImagesAccueil
      */
     private $texteContact;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $couleurDroite;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $couleurGauche;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -222,6 +232,30 @@ class ImagesAccueil
     public function setTexteContact(?string $texteContact): self
     {
         $this->texteContact = $texteContact;
+
+        return $this;
+    }
+
+    public function getCouleurDroite(): ?string
+    {
+        return $this->couleurDroite;
+    }
+
+    public function setCouleurDroite(?string $couleurDroite): self
+    {
+        $this->couleurDroite = $couleurDroite;
+
+        return $this;
+    }
+
+    public function getCouleurGauche(): ?string
+    {
+        return $this->couleurGauche;
+    }
+
+    public function setCouleurGauche(?string $couleurGauche): self
+    {
+        $this->couleurGauche = $couleurGauche;
 
         return $this;
     }

@@ -37,6 +37,11 @@ class Blog
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $altDescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,5 +99,17 @@ class Blog
         $pattern = '/h1/i';
         $replacement = 'h2';
         return preg_replace($pattern, $replacement, $this->contenu);
+    }
+
+    public function getAltDescription(): ?string
+    {
+        return $this->altDescription;
+    }
+
+    public function setAltDescription(?string $altDescription): self
+    {
+        $this->altDescription = $altDescription;
+
+        return $this;
     }
 }

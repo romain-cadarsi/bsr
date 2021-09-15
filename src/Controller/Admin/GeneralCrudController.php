@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -39,28 +40,32 @@ class GeneralCrudController extends AbstractCrudController
                 ->setUploadDir('public/images/upload')
                 ->setUploadedFileNamePattern("logo-dark.png")
                 ->setRequired(false)
-                ->setHelp('Ce logo sera utilisé pour les menu clairs (Ce logo doit donc avoir des textes noirs)')
+                ->setHelp('Ce logo sera utilisé pour les menu clairs (Ce logo doit donc avoir des textes noirs)<br> Format recommandé : <b>Rectangle ou carré</b>')
                 ->hideOnIndex(),
             ImageField::new('logoClair')
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setUploadedFileNamePattern("logo-light.png")
                 ->setRequired(false)
-                ->setHelp('Ce logo sera utilisé pour les menu sombres (Ce logo doit donc avoir des textes blancs)')
+                ->setHelp('Ce logo sera utilisé pour les menu sombres (Ce logo doit donc avoir des textes blancs)<br> Format recommandé : <b>Rectangle ou carré</b>')
                 ->hideOnIndex(),
             ImageField::new('logoPetit')
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setUploadedFileNamePattern("logo-petit.png")
                 ->setRequired(false)
-                ->setHelp("Ce logo sera utilisé sur les menus mobiles et dans l'icône du site. (Devrait contenir uniquement que le logo, sans texte associé)")
+                ->setHelp("Ce logo sera utilisé sur les menus mobiles et dans l'icône du site. (Devrait contenir uniquement que le logo, sans texte associé et devra être de <b>préférence carré</b>, reportez vous à l'option suivante si vous connaissez des difficultés avec votre logo mobile)")
                 ->hideOnIndex(),
+            BooleanField::new('hidePhoneOnMobile')
+                ->setLabel("Cacher le numéro de téléphone sur la partie mobile")
+            ->setHelp("Si votre logo petit est trop gros, qu'il n'est pas carré ou que vous voyez qu'il chevauche les éléments Contact et le numéro de téléphone dans le menu, activez pour cacher le contact et numéro de téléphone ")
+            ->hideOnIndex(),
             ImageField::new('imageAccueil')
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setRequired(false)
                 ->setUploadedFileNamePattern('accueil.png')
-                ->setHelp("La première image affichée sur la page d'accueil"),
+                ->setHelp("La première image affichée sur la page d'accueil<br> Format recommandé : <b>Rectangle</b>'"),
 
             FormField::addPanel('Informations Générales du site')->setCssClass(' field-form_panel col-6'),
             TextField::new('adresseEmail')
@@ -126,7 +131,9 @@ class GeneralCrudController extends AbstractCrudController
                 ->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setRequired(false)
-                ->setUploadedFileNamePattern('quiSommesNous.png')->hideOnIndex()
+                ->setUploadedFileNamePattern('quiSommesNous.png')
+                ->hideOnIndex()
+                ->setHelp("<br> Format recommandé : <b>Rectangle</b>")
                 ->setLabel("Image de la section 1"),
 
             TextField::new('accueilTitreSection2')
@@ -142,6 +149,7 @@ class GeneralCrudController extends AbstractCrudController
                 ->setUploadDir('public/images/upload')
                 ->setRequired(false)
                 ->setLabel("Image de la section 2")
+                ->setHelp("<br> Format recommandé : <b>Rectangle</b>")
                 ->setUploadedFileNamePattern('chiffresCles.png')->hideOnIndex(),
 
 

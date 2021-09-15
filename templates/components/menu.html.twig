@@ -1,12 +1,12 @@
 <header id="header" class=" submenu-light header-always-fixed" data-fullwidth="true">
     <div class="header-inner">
         <div class="container-xl flex-row">
-            <div class="mobile-action d-xl-none">
+            <div class="mobile-action d-xl-none z-index-top {{ generalS.general.hidePhoneOnMobile ? 'd-sm-none' : ''}}">
                 <a class="special btn btn-success text-light" style="z-index: 10;" href="{{ path('contact') }}">Contact</a>
                 <h4 class=" lh-0 pt-3"  style="z-index: 10;" ><a style="color:#210e0e; font-size: 1em" href="tel:{{ generalS.general.telephone}}"> <span class="fa fa-mobile-alt"></span> {{ generalS.general.telephone | replace({' ' : '.'}) }} </a></h4>
             </div>
             <div id="logo">
-                <a href="{{ path('home') }}" class="sm-relative" style="max-width: calc( 100vw - 350px); top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                <a href="{{ path('home') }}" class="sm-relative" style=" top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); max-width: 65%">
                     <span class="logo-default"><img src="{{ asset('images/upload/logo-dark.png') }}" alt="{{ generalS.general.nomEntreprise }}"></span>
                     <span class="logo-dark"><img src="{{ asset('images/upload/logo-light.png') }}" alt="{{ generalS.general.nomEntreprise }}"></span>
                     <span class="logo-responsive"><img src="{{ asset('images/upload/logo-petit.png') }}" alt="{{ generalS.general.nomEntreprise }}"></span>

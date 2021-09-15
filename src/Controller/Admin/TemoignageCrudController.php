@@ -28,7 +28,8 @@ class TemoignageCrudController extends AbstractCrudController
             ImageField::new('image')->setBasePath('images/upload/')
                 ->setUploadDir('public/images/upload')
                 ->setRequired(false)
-            ->setHelp("Si aucune image n'est défini pour ce témoignage, alors l'image affichée par défaut sera celle du client.")
+                ->setHelp("Si aucune image n'est défini pour ce témoignage, alors l'image affichée par défaut sera celle du client."),
+            TextField::new('altDescription')->setLabel("Description alternative de l'image")->setHelp("Sera utilisé dans les options d'accessibilité afin de décrire l'image aux non voyants"),
         ];
     }
 

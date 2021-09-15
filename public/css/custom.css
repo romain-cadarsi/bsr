@@ -31,6 +31,12 @@
 
 }
 
+.z-index-top{
+    z-index: 100;
+}
+.mfp-container{
+    padding : 5%;
+}
 @media all and (min-width:1350px){
 
 
@@ -67,9 +73,17 @@
     .sm-relative{
         position: relative;
     }
+    .d-sm-none{
+        display : none;
+    }
 
 }
 
+@media all and (max-width : 350px){
+    #header .mobile-action h4{
+        display : none;
+    }
+}
 .realisation>.image{
     height: 200px;
 }

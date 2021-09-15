@@ -20,7 +20,7 @@
                             <div class="post-item-wrap">
                                 <div class="post-image">
                                     <a href="">
-                                        <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}">
+                                        <img alt="{{ blog.altDescription }}" src="{{ asset('images/upload/' ~ blog.image) }}">
                                     </a>
                                 </div>
                                 <div class="post-item-description">
@@ -62,7 +62,7 @@
                         <div class="post-thumbnail-list">
                             {% for blog in otherBlogs %}
                                 <div class="post-thumbnail-entry">
-                                    <img alt="" src="{{ asset('images/upload/' ~ blog.image) }}">
+                                    <img alt="{{ blog.altDescription }}" src="{{ asset('images/upload/' ~ blog.image) }}">
                                     <div class="post-thumbnail-content">
                                         <a href="{{ path('blog',{'id' : blog.id}) }}">{{ blog.titre }}</a>
                                         <span class="post-date"><i class="fa fa-calendar-o"></i>{{ blog.date | date('M d, Y') }}</span>

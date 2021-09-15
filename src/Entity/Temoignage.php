@@ -37,6 +37,11 @@ class Temoignage
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $altDescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Temoignage
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAltDescription(): ?string
+    {
+        return $this->altDescription;
+    }
+
+    public function setAltDescription(?string $altDescription): self
+    {
+        $this->altDescription = $altDescription;
 
         return $this;
     }
