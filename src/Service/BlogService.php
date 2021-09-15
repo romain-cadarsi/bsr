@@ -10,7 +10,7 @@ class BlogService{
 
     private $blogRepository;
 
-    public function __construct(BlogRepository $blogRepository,){
+    public function __construct(BlogRepository $blogRepository){
         $this->blogRepository = $blogRepository;
     }
 
